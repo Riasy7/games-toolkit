@@ -26,6 +26,10 @@ end
 
 -- populate world when sandbox boots up
 return function()
-	World.add(Drifter.new("Red Circle", 100, 300, { 1, 0, 0 }))
+	local circle = Drifter.new("Red Circle", 100, 300, { 1, 0, 0 })
+
+	World.add(circle)
 	World.add(Drifter.new("Blue Circle", 100, 450, { 0, 0, 1 }))
+
+	return circle
 end
