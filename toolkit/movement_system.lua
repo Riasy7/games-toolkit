@@ -1,12 +1,11 @@
 local MovementSystem = {}
-local Registry = require("ecs_registry")
+local Registry = require("toolkit.ecs_registry")
 
 function MovementSystem.update(dt)
 	local ids = Registry.query({ "transform", "velocity" })
 
 	for i = 1, #ids do
 		local id = ids[i]
-
 		-- lua has pass by reference here not by value, so we are updating the db directly in registry
 		local transform = Registry.getComponent(id, "transform")
 		local velocity = Registry.getComponent(id, "velocity")
